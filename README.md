@@ -3,9 +3,13 @@
 Evidence-preserving analysis of privacy policies and terms documents under India's
 Digital Personal Data Protection Act, 2023.
 
-The system reads a policy supplied as a public URL or a PDF, preserves exact source
-locations, extracts structured data-practice statements, assigns a transparent
-user-impact severity, and returns a report that can be audited line by line.
+The system reads a policy supplied as a public URL, a PDF, or a curated corpus source,
+preserves exact source locations, extracts structured data-practice statements, assigns
+a transparent user-impact severity, and returns a report that can be audited line by
+line.
+
+The corpus contains the DPDP Act 2023 and three real privacy policies: Google, Eternal
+(formerly Zomato) and TikTok. See [`corpus/README.md`](corpus/README.md).
 
 ![Core runtime architecture](docs/diagrams/architecture.png)
 
@@ -20,6 +24,7 @@ carries `legal_mapping_status: "not_available"`.
 
 | Capability | Status |
 |---|---|
+| Curated corpus with structural indices | Implemented: 1 statute, 3 policies |
 | Public URL ingestion (HTML and PDF) | Implemented, SSRF guarded |
 | PDF upload ingestion | Implemented |
 | Canonical text with page, section and character offsets | Implemented |
@@ -41,23 +46,24 @@ Requires Python 3.12 and [uv](https://docs.astral.sh/uv/).
 
 ```bash
 uv sync
-uv run python scripts/make_sample_pdf.py
 uv run uvicorn app.main:app --reload
 ```
 
 Interactive API documentation is then at <http://127.0.0.1:8000/docs>.
 
-Analyse the bundled sample:
+List the corpus and analyse a real policy:
 
 ```bash
-curl -s -F "file=@sample_data/nimbus_privacy_policy.pdf" \
-  http://127.0.0.1:8000/v1/analyses/pdf
+curl -s http://127.0.0.1:8000/v1/corpus
+
+curl -s -X POST http://127.0.0.1:8000/v1/analyses/corpus/zomato-privacy
 ```
 
 Run the command-line analyser without starting the server:
 
 ```bash
-uv run python -m app.cli --no-store sample_data/nimbus_privacy_policy.pdf
+uv run python -m app.cli --list-corpus
+uv run python -m app.cli --corpus zomato-privacy --no-store
 ```
 
 Run the checks:
@@ -72,6 +78,8 @@ uv run ruff check .
 | Method | Path | Purpose |
 |---|---|---|
 | `GET` | `/health` | Liveness |
+| `GET` | `/v1/corpus` | List curated corpus sources |
+| `POST` | `/v1/analyses/corpus/{slug}` | Analyse a corpus source |
 | `POST` | `/v1/analyses/pdf` | Analyse an uploaded PDF |
 | `POST` | `/v1/analyses/url` | Analyse a public policy URL |
 | `GET` | `/v1/analyses/{id}` | Retrieve a report |
@@ -87,7 +95,7 @@ Configuration:
 ## How a report is produced
 
 ```text
-URL or PDF
+URL, PDF or corpus source
    |
    v
 ingestion      canonical text + blocks (page, section, heading flag, offsets)
@@ -139,6 +147,7 @@ and timeouts.
 
 ```text
 app/
+  corpus.py       load curated sources into the pipeline
   domain.py       report and observation models
   ingestion.py    URL and PDF ingestion, offsets, headings
   extraction.py   sentence classification and observation building
@@ -147,10 +156,10 @@ app/
   store.py        SQLite store with retention
   main.py         FastAPI application factory
   cli.py          local analysis command
+corpus/           DPDP Act and three real privacy policies, with indices
 docs/
   architecture.md complete architecture and implementation record
   diagrams/       architecture and UML images with their Mermaid sources
-sample_data/      fictional demonstration policy (HTML and generated PDF)
 scripts/          sample PDF generator
 tests/            ingestion, extraction, severity, security, storage, API
 ```
@@ -164,6 +173,8 @@ tests/            ingestion, extraction, severity, security, storage, API
   is reported once, under the higher-priority practice.
 - Scanned PDFs require OCR, which is not enabled.
 - Severity is a product heuristic, not legal advice.
+- Extraction precision on real policies is unmeasured. Noun forms and coordinated verbs
+  still produce false positives; the evaluation set is the next milestone.
 - The official DPDP Act, rules and guidance are not yet indexed, so no observation is
   linked to a statutory provision.
 

@@ -31,11 +31,11 @@ def test_fetch_html_document(sample_html_bytes: bytes) -> None:
         )
     )
 
-    document = fetch_url("https://nimbus.example/privacy", transport=transport)
+    document = fetch_url("https://acme.example/privacy", transport=transport)
 
     assert document.source_type == "url"
-    assert document.source_url == "https://nimbus.example/privacy"
-    assert document.title == "Nimbus Notes Privacy Policy"
+    assert document.source_url == "https://acme.example/privacy"
+    assert document.title == "Acme Privacy Policy"
     assert document.page_count is None
     assert document.blocks
     for block in document.blocks:
@@ -51,7 +51,7 @@ def test_fetch_pdf_by_content_type(sample_pdf_bytes: bytes) -> None:
         )
     )
 
-    document = fetch_url("https://nimbus.example/policy.pdf", transport=transport)
+    document = fetch_url("https://acme.example/policy.pdf", transport=transport)
 
     assert document.page_count == 1
     assert document.blocks
@@ -60,25 +60,25 @@ def test_fetch_pdf_by_content_type(sample_pdf_bytes: bytes) -> None:
 def test_fetch_follows_public_redirect() -> None:
     def handler(request: httpx.Request) -> httpx.Response:
         if request.url.path == "/old":
-            return httpx.Response(301, headers={"location": "https://nimbus.example/new"})
+            return httpx.Response(301, headers={"location": "https://acme.example/new"})
         return httpx.Response(
             200,
             headers={"content-type": "text/html"},
             text="<html><head><title>Policy</title></head><body><main><p>We collect email.</p></main></body></html>",
         )
 
-    document = fetch_url("https://nimbus.example/old", transport=_client(handler))
+    document = fetch_url("https://acme.example/old", transport=_client(handler))
 
-    assert document.source_url == "https://nimbus.example/new"
+    assert document.source_url == "https://acme.example/new"
     assert "We collect email." in document.text
 
 
 def test_fetch_rejects_redirect_loop() -> None:
     def handler(request: httpx.Request) -> httpx.Response:
-        return httpx.Response(302, headers={"location": "https://nimbus.example/again"})
+        return httpx.Response(302, headers={"location": "https://acme.example/again"})
 
     with pytest.raises(HTTPException) as error:
-        fetch_url("https://nimbus.example/again", transport=_client(handler))
+        fetch_url("https://acme.example/again", transport=_client(handler))
 
     assert error.value.status_code == 422
     assert "redirect" in str(error.value.detail)
@@ -94,7 +94,7 @@ def test_fetch_rejects_unsupported_content_type() -> None:
     )
 
     with pytest.raises(HTTPException) as error:
-        fetch_url("https://nimbus.example/privacy", transport=transport)
+        fetch_url("https://acme.example/privacy", transport=transport)
 
     assert error.value.status_code == 415
 
@@ -103,7 +103,7 @@ def test_fetch_reports_http_error() -> None:
     transport = _client(lambda request: httpx.Response(404))
 
     with pytest.raises(HTTPException) as error:
-        fetch_url("https://nimbus.example/missing", transport=transport)
+        fetch_url("https://acme.example/missing", transport=transport)
 
     assert error.value.status_code == 422
     assert "404" in str(error.value.detail)
@@ -120,7 +120,7 @@ def test_fetch_enforces_size_limit(monkeypatch: pytest.MonkeyPatch) -> None:
     )
 
     with pytest.raises(HTTPException) as error:
-        fetch_url("https://nimbus.example/privacy", transport=transport)
+        fetch_url("https://acme.example/privacy", transport=transport)
 
     assert error.value.status_code == 413
 
@@ -136,6 +136,6 @@ def test_fetch_rejects_declared_oversize(monkeypatch: pytest.MonkeyPatch) -> Non
     )
 
     with pytest.raises(HTTPException) as error:
-        fetch_url("https://nimbus.example/privacy", transport=transport)
+        fetch_url("https://acme.example/privacy", transport=transport)
 
     assert error.value.status_code == 413

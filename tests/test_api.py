@@ -89,11 +89,11 @@ def test_url_analysis_uses_injected_fetcher(
 ) -> None:
     monkeypatch.setattr("app.main.fetch_url", lambda url: sample_document)
 
-    response = client.post("/v1/analyses/url", json={"url": "https://nimbus.example/privacy"})
+    response = client.post("/v1/analyses/url", json={"url": "https://www.zomato.com/privacy"})
 
     assert response.status_code == 201
     body = response.json()
-    assert body["metadata"]["source_url"] == "https://nimbus.example/privacy"
+    assert body["metadata"]["source_url"] == "https://www.zomato.com/privacy"
     assert body["observations"]
 
 
@@ -121,3 +121,29 @@ def test_report_carries_no_compliance_verdict(
     assert "non-compliant" not in serialised
     assert "compliant" not in serialised
     assert "verdict" not in serialised
+
+
+def test_corpus_listing(client: TestClient) -> None:
+    response = client.get("/v1/corpus")
+
+    assert response.status_code == 200
+    slugs = {item["slug"] for item in response.json()}
+    assert {"dpdp-act-2023", "google-privacy", "zomato-privacy", "tiktok-privacy"} <= slugs
+
+
+def test_corpus_analysis(client: TestClient) -> None:
+    response = client.post("/v1/analyses/corpus/zomato-privacy")
+
+    assert response.status_code == 201
+    body = response.json()
+    assert body["metadata"]["source_type"] == "corpus_policies"
+    assert body["metadata"]["source_url"] == "https://www.zomato.com/privacy"
+    assert body["observations"]
+    for observation in body["observations"]:
+        assert observation["source_spans"][0]["quote"]
+
+
+def test_unknown_corpus_slug_returns_404(client: TestClient) -> None:
+    response = client.post("/v1/analyses/corpus/not-a-source")
+
+    assert response.status_code == 404

@@ -1,0 +1,26 @@
+{
+  "slug": "dpdp-act-2023",
+  "kind": "legal",
+  "title": "The Digital Personal Data Protection Act, 2023 (No. 22 of 2023)",
+  "publisher": "Ministry of Law and Justice, Government of India",
+  "source_url": "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
+  "retrieved_at": "2026-11-10T04:09:49+00:00",
+  "files": {
+    "raw": "corpus/legal/dpdp-act-2023/raw/dpdp-act-2023.pdf",
+    "raw_sha256": "4deb23981d3010c8225a2ff6149e7243dc2268455b299e283afebdd7b72a7d15",
+    "markdown": "corpus/legal/dpdp-act-2023/text/dpdp-act-2023.md",
+    "text": "corpus/legal/dpdp-act-2023/text/content.md",
+    "text_sha256": "d90dcb8208645c80e25d98f9f892a20cc7078588570ad38f859014ecd151f7e8",
+    "structure": "corpus/legal/dpdp-act-2023/structure/index.json"
+  },
+  "stats": {
+    "characters": 63221,
+    "words": 10570,
+    "lines": 861
+  },
+  "authority": "Parliament of India",
+  "assent_date": "2023-08-11",
+  "status": "in force, partly commenced",
+  "official_gazette": true,
+  "notes": "Text obtained from the MeitY-hosted Gazette PDF. The Act is a statute and is not subject to copyright. Chapter and section offsets are derived from the canonical text; section titles require curation."
+}

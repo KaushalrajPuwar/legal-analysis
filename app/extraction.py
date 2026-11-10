@@ -19,6 +19,18 @@ from app.domain import DocumentKind, PracticeObservation, PracticeType, SourceSp
 from app.ingestion import DocumentBlock, IngestedDocument
 from app.severity import assess_evidence_strength, assess_severity, confidence_for, detect_categories
 
+DATA_NOUN = (
+    r"(?:personal\s+|sensitive\s+|non-personal\s+)?"
+    r"(?:information|data|details|records|identifiers?|"
+    r"device\s+information|location\s+data|usage\s+data|account\s+information|"
+    r"contact\s+details|financial\s+information|health\s+data|biometric\s+data|"
+    r"personal\s+information|user\s+data)"
+)
+DETERMINER = r"(?:your|the|any|such|this|that|all|some|our|their|its|his|her)"
+OBJECT = rf"(?:(?:{DETERMINER}\s+)?{DATA_NOUN}|(?:it|them|these|those))"
+# Coordinated verbs share one object: "collect and process information".
+COORDINATION = r"(?:\s*(?:,|and|or)\s*(?:\w+))?"
+
 PRACTICE_CUES: list[tuple[PracticeType, re.Pattern[str]]] = [
     (
         PracticeType.CHILDREN,
@@ -27,47 +39,74 @@ PRACTICE_CUES: list[tuple[PracticeType, re.Pattern[str]]] = [
     (
         PracticeType.DATA_SHARING,
         re.compile(
-            r"\b(?:share|shared|sharing|disclose|disclosed|disclosure|transfer|transferred|sell|sold|sale)\b",
+            rf"\b(?:share|shares|shared|sharing|disclose|discloses|disclosed|disclosure|"
+            rf"transfer|transfers|transferred|sell|sells|sold)\b{COORDINATION}\s+(?:of\s+)?{OBJECT}\b",
             re.I,
         ),
     ),
     (
         PracticeType.DATA_RETENTION,
         re.compile(
-            r"\b(?:retain|retained|retention|store|stored|storage|period of)\b"
-            r"|\bkeep\b.{0,40}?\b(?:for|until)\b",
+            rf"\b(?:retain|retains|retained|retention|store|stores|stored|storage)\b\s+"
+            rf"(?:of\s+)?{OBJECT}\b"
+            rf"|\bkeep\b{COORDINATION}\s+{OBJECT}\b\s*\b(?:for|until)\b",
             re.I,
         ),
     ),
     (
         PracticeType.SECURITY,
         re.compile(
-            r"\b(?:security|protect|protected|safeguard|encrypt|encrypted|unauthori[sz]ed access|breach)\b",
+            r"\b(?:security measures|protect|protected|safeguard|safeguards|encrypt|encrypted|"
+            r"unauthori[sz]ed access|data breach|personal data breach)\b",
             re.I,
         ),
     ),
     (
         PracticeType.USER_CONTROL,
         re.compile(
-            r"\b(?:withdraw|access request|correct|correction|erase|delete|opt[- ]out|consent|"
-            r"grievance|complaint|portability)\b",
+            r"\b(?:withdraw|withdrawal|access request|correct|correction|rectif\w*|erase|erasure|"
+            r"delete|deletion|opt[- ]out|portability|grievance|complaint)\b",
             re.I,
         ),
     ),
     (
         PracticeType.DATA_COLLECTION,
         re.compile(
-            r"\b(?:collect|collected|collecting|gather|receive|obtain|record|register)\b",
+            rf"\b(?:collect|collects|collected|collecting|gather|gathers|gathered|"
+            rf"receive|receives|received|obtain|obtains|obtained|record|records|recorded)\b"
+            rf"{COORDINATION}\s+(?:of\s+)?{OBJECT}\b",
             re.I,
         ),
     ),
     (
         PracticeType.DATA_USE,
-        re.compile(r"\b(?:use|used|using|process|processed|analyse|analyze|analysed|utilise|utilize)\b", re.I),
+        re.compile(
+            rf"\b(?:use|uses|used|using|process|processes|processed|processing|"
+            rf"analyse|analyses|analyze|analyzes|utilise|utilize)\b{COORDINATION}\s+(?:of\s+)?{OBJECT}\b",
+            re.I,
+        ),
     ),
 ]
 
 SENTENCE_PATTERN = re.compile(r"[^.!?]+(?:[.!?]+|$)")
+ABBREVIATIONS = (
+    "e.g.",
+    "i.e.",
+    "etc.",
+    "vs.",
+    "no.",
+    "sec.",
+    "art.",
+    "pvt.",
+    "ltd.",
+    "inc.",
+    "co.",
+    "mr.",
+    "mrs.",
+    "ms.",
+    "dr.",
+    "st.",
+)
 
 RECIPIENT_PATTERNS: dict[str, re.Pattern[str]] = {
     "third parties": re.compile(r"\bthird[- ]part(?:y|ies)\b", re.I),
@@ -108,8 +147,14 @@ def classify_document(text: str) -> DocumentKind:
 
 
 def _sentences(text: str) -> list[tuple[str, int, int]]:
-    """Return (text, start, end) sentence units with offsets inside ``text``."""
-    units: list[tuple[str, int, int]] = []
+    """Return (text, start, end) sentence units with offsets inside ``text``.
+
+    A split after a known abbreviation is merged back into the following unit,
+    so "e.g." and "Pvt. Ltd." do not produce fragments that begin mid-sentence.
+    Merging extends the end offset rather than concatenating strings, which
+    keeps every quote an exact slice of the source text.
+    """
+    spans: list[tuple[int, int]] = []
     for match in SENTENCE_PATTERN.finditer(text):
         raw = match.group(0)
         stripped = raw.strip()
@@ -117,23 +162,47 @@ def _sentences(text: str) -> list[tuple[str, int, int]]:
             continue
         leading = len(raw) - len(raw.lstrip())
         start = match.start() + leading
-        units.append((stripped, start, start + len(stripped)))
-    return units
+        spans.append((start, start + len(stripped)))
+
+    merged: list[tuple[str, int, int]] = []
+    carry_start: int | None = None
+    for start, end in spans:
+        if carry_start is not None:
+            start = carry_start
+            carry_start = None
+        if text[start:end].lower().endswith(ABBREVIATIONS):
+            carry_start = start
+            continue
+        merged.append((text[start:end], start, end))
+    if carry_start is not None:
+        merged.append((text[carry_start:], carry_start, len(text)))
+    return merged
 
 
-def _runs(blocks: list[DocumentBlock]) -> list[list[DocumentBlock]]:
-    """Group consecutive non-heading blocks so sentences can span block breaks."""
-    runs: list[list[DocumentBlock]] = []
+def _runs(document: IngestedDocument) -> list[tuple[int, str]]:
+    """Group consecutive non-heading blocks into contiguous document slices.
+
+    The slice is taken from the canonical text rather than by joining block
+    texts, so sentence offsets stay exact even when blocks are separated by
+    blank lines or other whitespace.
+    """
+    groups: list[list[DocumentBlock]] = []
     current: list[DocumentBlock] = []
-    for block in blocks:
+    for block in document.blocks:
         if block.is_heading:
             if current:
-                runs.append(current)
+                groups.append(current)
                 current = []
             continue
         current.append(block)
     if current:
-        runs.append(current)
+        groups.append(current)
+
+    runs: list[tuple[int, str]] = []
+    for group in groups:
+        start = group[0].start
+        end = group[-1].end
+        runs.append((start, document.text[start:end]))
     return runs
 
 
@@ -163,10 +232,7 @@ def extract_observations(document: IngestedDocument) -> list[PracticeObservation
     observations: list[PracticeObservation] = []
     seen: set[tuple[PracticeType, int]] = set()
 
-    for run in _runs(document.blocks):
-        run_text = " ".join(block.text for block in run)
-        run_start = run[0].start
-
+    for run_start, run_text in _runs(document):
         for sentence, start, end in _sentences(run_text):
             practice_type = _classify_sentence(sentence)
             if practice_type is None:
@@ -178,7 +244,7 @@ def extract_observations(document: IngestedDocument) -> list[PracticeObservation
                 continue
             seen.add(dedupe_key)
 
-            block = _block_at(run, absolute_start)
+            block = _block_at(document.blocks, absolute_start)
             span = SourceSpan(
                 section=block.section,
                 page=block.page,

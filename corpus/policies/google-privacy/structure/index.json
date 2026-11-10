@@ -1,0 +1,790 @@
+{
+  "structure": "heading > section",
+  "heading_count": 112,
+  "headings": [
+    {
+      "kind": "h2",
+      "label": "Privacy & Terms",
+      "title": "Privacy & Terms",
+      "start": 25,
+      "end": 679
+    },
+    {
+      "kind": "h1",
+      "label": "Google Privacy Policy",
+      "title": "Google Privacy Policy",
+      "start": 679,
+      "end": 1202
+    },
+    {
+      "kind": "h2",
+      "label": "Contents",
+      "title": "Contents",
+      "start": 1202,
+      "end": 2843
+    },
+    {
+      "kind": "h1",
+      "label": "Information Google collects",
+      "title": "Information Google collects",
+      "start": 2843,
+      "end": 2874
+    },
+    {
+      "kind": "h2",
+      "label": "We want you to understand the types of information we collect as you use our services",
+      "title": "We want you to understand the types of information we collect as you use our services",
+      "start": 2874,
+      "end": 3988
+    },
+    {
+      "kind": "h2",
+      "label": "Things you create or provide to us",
+      "title": "Things you create or provide to us",
+      "start": 3988,
+      "end": 4668
+    },
+    {
+      "kind": "h2",
+      "label": "Information we collect as you use our services",
+      "title": "Information we collect as you use our services",
+      "start": 4668,
+      "end": 4719
+    },
+    {
+      "kind": "h3",
+      "label": "Your apps, browsers & devices",
+      "title": "Your apps, browsers & devices",
+      "start": 4719,
+      "end": 5992
+    },
+    {
+      "kind": "h3",
+      "label": "Your activity",
+      "title": "Your activity",
+      "start": 5992,
+      "end": 7039
+    },
+    {
+      "kind": "h3",
+      "label": "Your location information",
+      "title": "Your location information",
+      "start": 7039,
+      "end": 9376
+    },
+    {
+      "kind": "h1",
+      "label": "Why Google collects data",
+      "title": "Why Google collects data",
+      "start": 9376,
+      "end": 9404
+    },
+    {
+      "kind": "h2",
+      "label": "We use data to build better services",
+      "title": "We use data to build better services",
+      "start": 9404,
+      "end": 9530
+    },
+    {
+      "kind": "h3",
+      "label": "Provide our services",
+      "title": "Provide our services",
+      "start": 9530,
+      "end": 9748
+    },
+    {
+      "kind": "h3",
+      "label": "Maintain & improve our services",
+      "title": "Maintain & improve our services",
+      "start": 9748,
+      "end": 10145
+    },
+    {
+      "kind": "h3",
+      "label": "Develop new services",
+      "title": "Develop new services",
+      "start": 10145,
+      "end": 10398
+    },
+    {
+      "kind": "h3",
+      "label": "Provide personalized services, including content and ads",
+      "title": "Provide personalized services, including content and ads",
+      "start": 10398,
+      "end": 12397
+    },
+    {
+      "kind": "h3",
+      "label": "Measure performance",
+      "title": "Measure performance",
+      "start": 12397,
+      "end": 13072
+    },
+    {
+      "kind": "h3",
+      "label": "Communicate with you",
+      "title": "Communicate with you",
+      "start": 13072,
+      "end": 13537
+    },
+    {
+      "kind": "h3",
+      "label": "Protect Google, our users, and the public",
+      "title": "Protect Google, our users, and the public",
+      "start": 13537,
+      "end": 15236
+    },
+    {
+      "kind": "h1",
+      "label": "Your privacy controls",
+      "title": "Your privacy controls",
+      "start": 15236,
+      "end": 15261
+    },
+    {
+      "kind": "h2",
+      "label": "You have choices regarding the information we collect and how it's used",
+      "title": "You have choices regarding the information we collect and how it's used",
+      "start": 15261,
+      "end": 15698
+    },
+    {
+      "kind": "h2",
+      "label": "Managing, reviewing, and updating your information",
+      "title": "Managing, reviewing, and updating your information",
+      "start": 15698,
+      "end": 16107
+    },
+    {
+      "kind": "h3",
+      "label": "Privacy controls",
+      "title": "Privacy controls",
+      "start": 16107,
+      "end": 16129
+    },
+    {
+      "kind": "h3",
+      "label": "Personalization and Activity Controls",
+      "title": "Personalization and Activity Controls",
+      "start": 16129,
+      "end": 17503
+    },
+    {
+      "kind": "h3",
+      "label": "Ad settings",
+      "title": "Ad settings",
+      "start": 17503,
+      "end": 17825
+    },
+    {
+      "kind": "h3",
+      "label": "About you",
+      "title": "About you",
+      "start": 17825,
+      "end": 17953
+    },
+    {
+      "kind": "h3",
+      "label": "Shared endorsements",
+      "title": "Shared endorsements",
+      "start": 17953,
+      "end": 18125
+    },
+    {
+      "kind": "h3",
+      "label": "Sites and apps that use Google services",
+      "title": "Sites and apps that use Google services",
+      "start": 18125,
+      "end": 18405
+    },
+    {
+      "kind": "h3",
+      "label": "Ways to review & update your information",
+      "title": "Ways to review & update your information",
+      "start": 18405,
+      "end": 18451
+    },
+    {
+      "kind": "h3",
+      "label": "My Activity",
+      "title": "My Activity",
+      "start": 18451,
+      "end": 18758
+    },
+    {
+      "kind": "h3",
+      "label": "Google Dashboard",
+      "title": "Google Dashboard",
+      "start": 18758,
+      "end": 18883
+    },
+    {
+      "kind": "h3",
+      "label": "Your personal information",
+      "title": "Your personal information",
+      "start": 18883,
+      "end": 19478
+    },
+    {
+      "kind": "h2",
+      "label": "Exporting, removing & deleting your information",
+      "title": "Exporting, removing & deleting your information",
+      "start": 19478,
+      "end": 20909
+    },
+    {
+      "kind": "h1",
+      "label": "Sharing your information",
+      "title": "Sharing your information",
+      "start": 20909,
+      "end": 20937
+    },
+    {
+      "kind": "h2",
+      "label": "When you share your information",
+      "title": "When you share your information",
+      "start": 20937,
+      "end": 21587
+    },
+    {
+      "kind": "h2",
+      "label": "When Google shares your information",
+      "title": "When Google shares your information",
+      "start": 21587,
+      "end": 21765
+    },
+    {
+      "kind": "h3",
+      "label": "With your consent",
+      "title": "With your consent",
+      "start": 21765,
+      "end": 22257
+    },
+    {
+      "kind": "h3",
+      "label": "With domain administrators",
+      "title": "With domain administrators",
+      "start": 22257,
+      "end": 22916
+    },
+    {
+      "kind": "h3",
+      "label": "For external processing",
+      "title": "For external processing",
+      "start": 22916,
+      "end": 23588
+    },
+    {
+      "kind": "h3",
+      "label": "For legal reasons",
+      "title": "For legal reasons",
+      "start": 23588,
+      "end": 24907
+    },
+    {
+      "kind": "h1",
+      "label": "Keeping your information secure",
+      "title": "Keeping your information secure",
+      "start": 24907,
+      "end": 24942
+    },
+    {
+      "kind": "h2",
+      "label": "We build security into our services to protect your information",
+      "title": "We build security into our services to protect your information",
+      "start": 24942,
+      "end": 26187
+    },
+    {
+      "kind": "h1",
+      "label": "Exporting & deleting your information",
+      "title": "Exporting & deleting your information",
+      "start": 26187,
+      "end": 26782
+    },
+    {
+      "kind": "h1",
+      "label": "Retaining your information",
+      "title": "Retaining your information",
+      "start": 26782,
+      "end": 28244
+    },
+    {
+      "kind": "h1",
+      "label": "Compliance & cooperation with regulators",
+      "title": "Compliance & cooperation with regulators",
+      "start": 28244,
+      "end": 28405
+    },
+    {
+      "kind": "h2",
+      "label": "Data transfers",
+      "title": "Data transfers",
+      "start": 28405,
+      "end": 29142
+    },
+    {
+      "kind": "h1",
+      "label": "About this policy",
+      "title": "About this policy",
+      "start": 29142,
+      "end": 29163
+    },
+    {
+      "kind": "h2",
+      "label": "When this policy applies",
+      "title": "When this policy applies",
+      "start": 29163,
+      "end": 29882
+    },
+    {
+      "kind": "h2",
+      "label": "Changes to this policy",
+      "title": "Changes to this policy",
+      "start": 29882,
+      "end": 30312
+    },
+    {
+      "kind": "h1",
+      "label": "Related privacy practices",
+      "title": "Related privacy practices",
+      "start": 30312,
+      "end": 30341
+    },
+    {
+      "kind": "h2",
+      "label": "Specific Google services",
+      "title": "Specific Google services",
+      "start": 30341,
+      "end": 30970
+    },
+    {
+      "kind": "h2",
+      "label": "Other useful resources",
+      "title": "Other useful resources",
+      "start": 30970,
+      "end": 31799
+    },
+    {
+      "kind": "h2",
+      "label": "Key terms",
+      "title": "Key terms",
+      "start": 31799,
+      "end": 31813
+    },
+    {
+      "kind": "h3",
+      "label": "Affiliates",
+      "title": "Affiliates",
+      "start": 31813,
+      "end": 32138
+    },
+    {
+      "kind": "h3",
+      "label": "Algorithm",
+      "title": "Algorithm",
+      "start": 32138,
+      "end": 32245
+    },
+    {
+      "kind": "h3",
+      "label": "Application data cache",
+      "title": "Application data cache",
+      "start": 32245,
+      "end": 32504
+    },
+    {
+      "kind": "h3",
+      "label": "Browser web storage",
+      "title": "Browser web storage",
+      "start": 32504,
+      "end": 32822
+    },
+    {
+      "kind": "h3",
+      "label": "Cookies",
+      "title": "Cookies",
+      "start": 32822,
+      "end": 33406
+    },
+    {
+      "kind": "h3",
+      "label": "Device",
+      "title": "Device",
+      "start": 33406,
+      "end": 33587
+    },
+    {
+      "kind": "h3",
+      "label": "Google Account",
+      "title": "Google Account",
+      "start": 33587,
+      "end": 34013
+    },
+    {
+      "kind": "h3",
+      "label": "IP address",
+      "title": "IP address",
+      "start": 34013,
+      "end": 34349
+    },
+    {
+      "kind": "h3",
+      "label": "Non-personally identifiable information",
+      "title": "Non-personally identifiable information",
+      "start": 34349,
+      "end": 34523
+    },
+    {
+      "kind": "h3",
+      "label": "Personal information",
+      "title": "Personal information",
+      "start": 34523,
+      "end": 34818
+    },
+    {
+      "kind": "h3",
+      "label": "Pixel tag",
+      "title": "Pixel tag",
+      "start": 34818,
+      "end": 35077
+    },
+    {
+      "kind": "h3",
+      "label": "Referrer URL",
+      "title": "Referrer URL",
+      "start": 35077,
+      "end": 35329
+    },
+    {
+      "kind": "h3",
+      "label": "Sensitive personal information",
+      "title": "Sensitive personal information",
+      "start": 35329,
+      "end": 35547
+    },
+    {
+      "kind": "h3",
+      "label": "Server logs",
+      "title": "Server logs",
+      "start": 35547,
+      "end": 36880
+    },
+    {
+      "kind": "h3",
+      "label": "Unique identifiers",
+      "title": "Unique identifiers",
+      "start": 36880,
+      "end": 38206
+    },
+    {
+      "kind": "h2",
+      "label": "Additional Context",
+      "title": "Additional Context",
+      "start": 38206,
+      "end": 38229
+    },
+    {
+      "kind": "h3",
+      "label": "Activity on Google Services",
+      "title": "Activity on Google Services",
+      "start": 38229,
+      "end": 39261
+    },
+    {
+      "kind": "h3",
+      "label": "activity on third-party sites and apps that use our services",
+      "title": "activity on third-party sites and apps that use our services",
+      "start": 39261,
+      "end": 39905
+    },
+    {
+      "kind": "h3",
+      "label": "ads you’ll find most useful",
+      "title": "ads you’ll find most useful",
+      "start": 39905,
+      "end": 40291
+    },
+    {
+      "kind": "h3",
+      "label": "advertising and research services on their behalf",
+      "title": "advertising and research services on their behalf",
+      "start": 40291,
+      "end": 40660
+    },
+    {
+      "kind": "h3",
+      "label": "Android device with Google apps",
+      "title": "Android device with Google apps",
+      "start": 40660,
+      "end": 41103
+    },
+    {
+      "kind": "h3",
+      "label": "deliver our services",
+      "title": "deliver our services",
+      "start": 41103,
+      "end": 42013
+    },
+    {
+      "kind": "h3",
+      "label": "detect abuse",
+      "title": "detect abuse",
+      "start": 42013,
+      "end": 42355
+    },
+    {
+      "kind": "h3",
+      "label": "devices",
+      "title": "devices",
+      "start": 42355,
+      "end": 42592
+    },
+    {
+      "kind": "h3",
+      "label": "ensure and improve",
+      "title": "ensure and improve",
+      "start": 42592,
+      "end": 42717
+    },
+    {
+      "kind": "h3",
+      "label": "ensure our services are working as intended",
+      "title": "ensure our services are working as intended",
+      "start": 42717,
+      "end": 43000
+    },
+    {
+      "kind": "h3",
+      "label": "Information about things near your device",
+      "title": "Information about things near your device",
+      "start": 43000,
+      "end": 43529
+    },
+    {
+      "kind": "h3",
+      "label": "legal process, or enforceable governmental request",
+      "title": "legal process, or enforceable governmental request",
+      "start": 43529,
+      "end": 44086
+    },
+    {
+      "kind": "h3",
+      "label": "make improvements",
+      "title": "make improvements",
+      "start": 44086,
+      "end": 44460
+    },
+    {
+      "kind": "h3",
+      "label": "may link information",
+      "title": "may link information",
+      "start": 44460,
+      "end": 44837
+    },
+    {
+      "kind": "h3",
+      "label": "Media (like images, files, audio and video) from your interactions",
+      "title": "Media (like images, files, audio and video) from your interactions",
+      "start": 44837,
+      "end": 45237
+    },
+    {
+      "kind": "h3",
+      "label": "our users",
+      "title": "our users",
+      "start": 45237,
+      "end": 45587
+    },
+    {
+      "kind": "h3",
+      "label": "partner with Google",
+      "title": "partner with Google",
+      "start": 45587,
+      "end": 45716
+    },
+    {
+      "kind": "h3",
+      "label": "payment information",
+      "title": "payment information",
+      "start": 45716,
+      "end": 46298
+    },
+    {
+      "kind": "h3",
+      "label": "Performance of their ad campaigns.",
+      "title": "Performance of their ad campaigns.",
+      "start": 46298,
+      "end": 46395
+    },
+    {
+      "kind": "h3",
+      "label": "personalize content",
+      "title": "personalize content",
+      "start": 46395,
+      "end": 46831
+    },
+    {
+      "kind": "h3",
+      "label": "personalized ads",
+      "title": "personalized ads",
+      "start": 46831,
+      "end": 47050
+    },
+    {
+      "kind": "h3",
+      "label": "phone number",
+      "title": "phone number",
+      "start": 47050,
+      "end": 47406
+    },
+    {
+      "kind": "h3",
+      "label": "Places you label like home and work",
+      "title": "Places you label like home and work",
+      "start": 47406,
+      "end": 47826
+    },
+    {
+      "kind": "h3",
+      "label": "protect against abuse",
+      "title": "protect against abuse",
+      "start": 47826,
+      "end": 48040
+    },
+    {
+      "kind": "h3",
+      "label": "publicly accessible sources",
+      "title": "publicly accessible sources",
+      "start": 48040,
+      "end": 48409
+    },
+    {
+      "kind": "h3",
+      "label": "rely on cookies to function properly",
+      "title": "rely on cookies to function properly",
+      "start": 48409,
+      "end": 48651
+    },
+    {
+      "kind": "h3",
+      "label": "safety and reliability",
+      "title": "safety and reliability",
+      "start": 48651,
+      "end": 49397
+    },
+    {
+      "kind": "h3",
+      "label": "search results",
+      "title": "search results",
+      "start": 49397,
+      "end": 49950
+    },
+    {
+      "kind": "h3",
+      "label": "sensitive categories",
+      "title": "sensitive categories",
+      "start": 49950,
+      "end": 50367
+    },
+    {
+      "kind": "h3",
+      "label": "Sensor data from your device",
+      "title": "Sensor data from your device",
+      "start": 50367,
+      "end": 50669
+    },
+    {
+      "kind": "h3",
+      "label": "servers around the world",
+      "title": "servers around the world",
+      "start": 50669,
+      "end": 50822
+    },
+    {
+      "kind": "h3",
+      "label": "services to make and receive calls or send and receive messages",
+      "title": "services to make and receive calls or send and receive messages",
+      "start": 50822,
+      "end": 51270
+    },
+    {
+      "kind": "h3",
+      "label": "show trends",
+      "title": "show trends",
+      "start": 51270,
+      "end": 51577
+    },
+    {
+      "kind": "h3",
+      "label": "similar information related to your physical or mental health",
+      "title": "similar information related to your physical or mental health",
+      "start": 51577,
+      "end": 51949
+    },
+    {
+      "kind": "h3",
+      "label": "specific Google services",
+      "title": "specific Google services",
+      "start": 51949,
+      "end": 52168
+    },
+    {
+      "kind": "h3",
+      "label": "specific partners",
+      "title": "specific partners",
+      "start": 52168,
+      "end": 52584
+    },
+    {
+      "kind": "h3",
+      "label": "synced with your Google Account",
+      "title": "synced with your Google Account",
+      "start": 52584,
+      "end": 52759
+    },
+    {
+      "kind": "h3",
+      "label": "the people who matter most to you online",
+      "title": "the people who matter most to you online",
+      "start": 52759,
+      "end": 52980
+    },
+    {
+      "kind": "h3",
+      "label": "the public",
+      "title": "the public",
+      "start": 52980,
+      "end": 53264
+    },
+    {
+      "kind": "h3",
+      "label": "third parties",
+      "title": "third parties",
+      "start": 53264,
+      "end": 53579
+    },
+    {
+      "kind": "h3",
+      "label": "use the information we collect across our services",
+      "title": "use the information we collect across our services",
+      "start": 53579,
+      "end": 55322
+    },
+    {
+      "kind": "h3",
+      "label": "Views and interactions with content and ads",
+      "title": "Views and interactions with content and ads",
+      "start": 55322,
+      "end": 55743
+    },
+    {
+      "kind": "h3",
+      "label": "your activity on other sites and apps",
+      "title": "your activity on other sites and apps",
+      "start": 55743,
+      "end": 57353
+    }
+  ]
+}

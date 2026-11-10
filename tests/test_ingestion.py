@@ -1,27 +1,47 @@
 from __future__ import annotations
 
+import pymupdf
 import pytest
 from fastapi import HTTPException
 
 from app.ingestion import extract_html, ingest_pdf_bytes
 
+SAMPLE_HTML = b"""<!doctype html>
+<html><head><title>Acme Privacy Policy</title>
+<meta property="og:site_name" content="Acme Ltd"></head>
+<body><main>
+<h1>Acme Privacy Policy</h1>
+<p>We collect your name and email address when you create an account.</p>
+<h2>Information We Collect</h2>
+<p>We collect device information such as your browser type and IP address.</p>
+<h2>Data Retention</h2>
+<p>We retain account information for 24 months after you close your account.</p>
+</main></body></html>"""
 
-def test_html_blocks_map_back_to_canonical_text(sample_html_bytes: bytes) -> None:
-    text, title, publisher, blocks = extract_html(sample_html_bytes, "https://nimbus.example/privacy")
 
-    assert title == "Nimbus Notes Privacy Policy"
-    assert publisher == "Nimbus Labs Pvt. Ltd."
+def test_html_blocks_map_back_to_canonical_text() -> None:
+    text, title, publisher, blocks = extract_html(SAMPLE_HTML, "https://acme.example/privacy")
+
+    assert title == "Acme Privacy Policy"
+    assert publisher == "Acme Ltd"
     assert blocks
-    assert text
     for block in blocks:
         assert text[block.start : block.end] == block.text
 
 
-def test_html_sections_are_preserved(sample_html_bytes: bytes) -> None:
-    _, _, _, blocks = extract_html(sample_html_bytes, "https://nimbus.example/privacy")
+def test_html_sections_are_preserved() -> None:
+    _, _, _, blocks = extract_html(SAMPLE_HTML, "https://acme.example/privacy")
     sections = {block.section for block in blocks}
+
     assert "Information We Collect" in sections
     assert "Data Retention" in sections
+
+
+def test_html_headings_are_flagged() -> None:
+    _, _, _, blocks = extract_html(SAMPLE_HTML, "https://acme.example/privacy")
+
+    assert any(block.is_heading for block in blocks)
+    assert not all(block.is_heading for block in blocks)
 
 
 def test_pdf_ingest_preserves_pages(sample_pdf_bytes: bytes) -> None:
@@ -42,8 +62,6 @@ def test_pdf_ingest_rejects_non_pdf() -> None:
 
 
 def test_pdf_ingest_rejects_empty_text() -> None:
-    import pymupdf
-
     document = pymupdf.open()
     document.new_page()
     content = document.tobytes()

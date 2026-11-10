@@ -1,0 +1,118 @@
+{
+  "structure": "heading > section",
+  "heading_count": 16,
+  "headings": [
+    {
+      "kind": "h2",
+      "label": "Applicability and Scope ​",
+      "title": "Applicability and Scope ​",
+      "start": 70,
+      "end": 2728
+    },
+    {
+      "kind": "h2",
+      "label": "The information we collect and how we use it ​",
+      "title": "The information we collect and how we use it ​",
+      "start": 2728,
+      "end": 3957
+    },
+    {
+      "kind": "h2",
+      "label": "Information You Provide to Us ​",
+      "title": "Information You Provide to Us ​",
+      "start": 3957,
+      "end": 10816
+    },
+    {
+      "kind": "h2",
+      "label": "Data of Minors ​",
+      "title": "Data of Minors ​",
+      "start": 10816,
+      "end": 12211
+    },
+    {
+      "kind": "h2",
+      "label": "Information We Collect Through Automatic Data Collection Technologies ​",
+      "title": "Information We Collect Through Automatic Data Collection Technologies ​",
+      "start": 12211,
+      "end": 17826
+    },
+    {
+      "kind": "h2",
+      "label": "Information from Third Parties ​",
+      "title": "Information from Third Parties ​",
+      "start": 17826,
+      "end": 19762
+    },
+    {
+      "kind": "h2",
+      "label": "How we use the information we collect ​",
+      "title": "How we use the information we collect ​",
+      "start": 19762,
+      "end": 28106
+    },
+    {
+      "kind": "h2",
+      "label": "How we share the information we collect ​",
+      "title": "How we share the information we collect ​",
+      "start": 28106,
+      "end": 33121
+    },
+    {
+      "kind": "h2",
+      "label": "Information Shared with Merchants: ​",
+      "title": "Information Shared with Merchants: ​",
+      "start": 33121,
+      "end": 35392
+    },
+    {
+      "kind": "h2",
+      "label": "Data Storage ​",
+      "title": "Data Storage ​",
+      "start": 35392,
+      "end": 35642
+    },
+    {
+      "kind": "h2",
+      "label": "Your Information ​",
+      "title": "Your Information ​",
+      "start": 35642,
+      "end": 37384
+    },
+    {
+      "kind": "h2",
+      "label": "Information Pertaining to Service Partners ​",
+      "title": "Information Pertaining to Service Partners ​",
+      "start": 37384,
+      "end": 43004
+    },
+    {
+      "kind": "h2",
+      "label": "Security: How we protect your information ​",
+      "title": "Security: How we protect your information ​",
+      "start": 43004,
+      "end": 44336
+    },
+    {
+      "kind": "h2",
+      "label": "Miscellaneous ​",
+      "title": "Miscellaneous ​",
+      "start": 44336,
+      "end": 45783
+    },
+    {
+      "kind": "h2",
+      "label": "Nugget AI ​",
+      "title": "Nugget AI ​",
+      "start": 45783,
+      "end": 47191
+    },
+    {
+      "kind": "h2",
+      "label": "Contact Us ​",
+      "title": "Contact Us ​",
+      "start": 47191,
+      "end": 47886
+    }
+  ]
+}

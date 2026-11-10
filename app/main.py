@@ -9,6 +9,7 @@ from pathlib import Path
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 
+from app.corpus import list_entries, load_document
 from app.domain import AnalysisReport
 from app.ingestion import fetch_url, read_pdf_upload
 from app.service import analyse_document
@@ -50,6 +51,25 @@ def create_app(store: AnalysisStore | None = None) -> FastAPI:
     @app.get("/health", tags=["system"])
     def health() -> dict[str, str]:
         return {"status": "ok", "service": "legal-analysis-api"}
+
+    @app.get("/v1/corpus", tags=["corpus"])
+    def corpus_sources() -> list[dict[str, str]]:
+        return [
+            {
+                "slug": entry.slug,
+                "kind": entry.kind,
+                "title": entry.title,
+                "publisher": entry.publisher,
+                "source_url": entry.source_url,
+            }
+            for entry in list_entries()
+        ]
+
+    @app.post("/v1/analyses/corpus/{slug}", response_model=AnalysisReport, status_code=201, tags=["analyses"])
+    def analyse_corpus(slug: str) -> AnalysisReport:
+        document = load_document(slug)
+        store: AnalysisStore = app.state.store
+        return analyse_document(document, store=store, retention_hours=store.retention_hours)
 
     @app.post("/v1/analyses/url", response_model=AnalysisReport, status_code=201, tags=["analyses"])
     def analyse_url(request: URLAnalysisRequest) -> AnalysisReport:

@@ -1,0 +1,23 @@
+{
+  "slug": "google-privacy",
+  "kind": "policies",
+  "title": "Google Privacy Policy",
+  "publisher": "Google LLC",
+  "source_url": "https://policies.google.com/privacy?hl=en&gl=IN",
+  "retrieved_at": "2026-11-10T04:09:49+00:00",
+  "files": {
+    "raw": null,
+    "raw_sha256": null,
+    "markdown": "corpus/policies/google-privacy/text/privacy-policy.md",
+    "text": "corpus/policies/google-privacy/text/content.md",
+    "text_sha256": "d0b7483b152c8a8af349e2338649a6c103eea3a95459a26ab28dd4b5ae315506",
+    "structure": "corpus/policies/google-privacy/structure/index.json"
+  },
+  "stats": {
+    "characters": 57353,
+    "words": 9231,
+    "lines": 600
+  },
+  "profile": "international platform operating in India",
+  "selection_rationale": "Globally dominant platform serving Indian users, publishing one global policy with jurisdiction-specific supplements."
+}

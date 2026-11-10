@@ -1,0 +1,31 @@
+{
+  "slug": "tiktok-privacy",
+  "kind": "policies",
+  "title": "TikTok Privacy Policy (rest of world)",
+  "publisher": "TikTok Technology Limited",
+  "source_url": "https://www.tiktok.com/legal/page/row/privacy-policy/en",
+  "retrieved_at": "2026-11-10T04:09:49+00:00",
+  "files": {
+    "raw": null,
+    "raw_sha256": null,
+    "markdown": "corpus/policies/tiktok-privacy/text/privacy-policy.md",
+    "text": "corpus/policies/tiktok-privacy/text/content.md",
+    "text_sha256": "46f43e41babd7f08661bb15ce2a6ab190def76475cf6b6b76e1b0a42a405ac5f",
+    "structure": "corpus/policies/tiktok-privacy/structure/index.json"
+  },
+  "stats": {
+    "characters": 53944,
+    "words": 8698,
+    "lines": 317
+  },
+  "profile": "platform blocked in India",
+  "selection_rationale": "TikTok is item 1 of 59 applications blocked by the Ministry of Electronics and Information Technology on 29 June 2020 under section 69A of the Information Technology Act, 2000. It is retained as a comparison case for a service that does not lawfully operate in India.",
+  "blocking_order": {
+    "authority": "Ministry of Electronics and Information Technology",
+    "date": "2020-06-29",
+    "instrument": "section 69A, Information Technology Act, 2000",
+    "source_url": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=1635206",
+    "corpus_copy": "corpus/sources/pib-1635206-59-apps-blocked.md"
+  },
+  "scope_note": "The captured policy is the rest-of-world version, not an India version, because the service is blocked in India. Any comparison must account for this difference in scope."
+}

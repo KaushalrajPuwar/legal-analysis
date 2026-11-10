@@ -561,6 +561,7 @@ Approximate functional coverage of the target design, not a claim of completenes
 | `app/severity.py` | Category detection, severity rules, evidence strength |
 | `app/service.py` | Composition, span invariant, optional persistence |
 | `app/store.py` | SQLite schema, save, get, delete, purge, expiry |
+| `app/corpus.py` | Load curated sources into the pipeline |
 | `app/main.py` | FastAPI factory, routes, configuration |
 | `app/cli.py` | Command-line analysis |
 | `tests/` | Ingestion, fetch, extraction, severity, security, storage, API, CLI |
@@ -622,8 +623,7 @@ Multipart form field `file`. Returns 201 with a report. Rejects non-PDF with 415
 oversize with 413 and unreadable content with 422.
 
 ```bash
-curl -s -F "file=@sample_data/nimbus_privacy_policy.pdf" \
-  http://127.0.0.1:8000/v1/analyses/pdf
+curl -s -F "file=@policy.pdf" http://127.0.0.1:8000/v1/analyses/pdf
 ```
 
 ### `POST /v1/analyses/url`
@@ -657,19 +657,19 @@ Then in another terminal:
 
 ```bash
 curl -s http://127.0.0.1:8000/health
-curl -s -F "file=@sample_data/nimbus_privacy_policy.pdf" \
-  http://127.0.0.1:8000/v1/analyses/pdf
+curl -s http://127.0.0.1:8000/v1/corpus
+curl -s -X POST http://127.0.0.1:8000/v1/analyses/corpus/zomato-privacy
 ```
 
-Expected on the bundled sample: 18 observations, 6 of them high severity, two pages,
-classified as a privacy policy. The high-severity findings are precise location
-collection, third-party advertising sharing, disclosure to public authorities, and
-open-ended retention, among others. Each has a quote and a page.
+Expected on the corpus sources: Google about 105 observations, Eternal about 80, TikTok
+about 102. Counts are approximate because extraction is pattern based. Each observation
+carries a verbatim quote and a section label.
 
 CLI demonstration without a server:
 
 ```bash
-uv run python -m app.cli --no-store sample_data/nimbus_privacy_policy.pdf
+uv run python -m app.cli --list-corpus
+uv run python -m app.cli --corpus zomato-privacy --no-store
 ```
 
 ---

@@ -1,0 +1,293 @@
+{
+  "structure": "heading > section",
+  "heading_count": 41,
+  "headings": [
+    {
+      "kind": "h2",
+      "label": "What information we collect",
+      "title": "What information we collect",
+      "start": 1306,
+      "end": 1391
+    },
+    {
+      "kind": "h3",
+      "label": "Information You Provide",
+      "title": "Information You Provide",
+      "start": 1391,
+      "end": 4939
+    },
+    {
+      "kind": "h3",
+      "label": "Automatically Collected Information",
+      "title": "Automatically Collected Information",
+      "start": 4939,
+      "end": 8372
+    },
+    {
+      "kind": "h3",
+      "label": "Information From Other Sources",
+      "title": "Information From Other Sources",
+      "start": 8372,
+      "end": 10641
+    },
+    {
+      "kind": "h2",
+      "label": "How we use your information",
+      "title": "How we use your information",
+      "start": 10641,
+      "end": 14994
+    },
+    {
+      "kind": "h2",
+      "label": "How we share your information",
+      "title": "How we share your information",
+      "start": 14994,
+      "end": 15083
+    },
+    {
+      "kind": "h3",
+      "label": "Business Partners",
+      "title": "Business Partners",
+      "start": 15083,
+      "end": 16602
+    },
+    {
+      "kind": "h3",
+      "label": "Service Providers",
+      "title": "Service Providers",
+      "start": 16602,
+      "end": 17487
+    },
+    {
+      "kind": "h3",
+      "label": "Advertisers, Advertising Networks, Publishers, and Measurement Partners",
+      "title": "Advertisers, Advertising Networks, Publishers, and Measurement Partners",
+      "start": 17487,
+      "end": 18174
+    },
+    {
+      "kind": "h3",
+      "label": "Independent Researchers",
+      "title": "Independent Researchers",
+      "start": 18174,
+      "end": 18311
+    },
+    {
+      "kind": "h3",
+      "label": "Our Corporate Group",
+      "title": "Our Corporate Group",
+      "start": 18311,
+      "end": 18562
+    },
+    {
+      "kind": "h3",
+      "label": "For Legal Reasons",
+      "title": "For Legal Reasons",
+      "start": 18562,
+      "end": 19281
+    },
+    {
+      "kind": "h3",
+      "label": "Public Profiles",
+      "title": "Public Profiles",
+      "start": 19281,
+      "end": 19759
+    },
+    {
+      "kind": "h3",
+      "label": "Sale, Merger or Other Business Transactions",
+      "title": "Sale, Merger or Other Business Transactions",
+      "start": 19759,
+      "end": 20287
+    },
+    {
+      "kind": "h3",
+      "label": "Sellers, Payment and Transaction Fulfillment Providers, and Other Service Providers",
+      "title": "Sellers, Payment and Transaction Fulfillment Providers, and Other Service Providers",
+      "start": 20287,
+      "end": 20884
+    },
+    {
+      "kind": "h2",
+      "label": "Where we store your information",
+      "title": "Where we store your information",
+      "start": 20884,
+      "end": 21166
+    },
+    {
+      "kind": "h2",
+      "label": "Your rights and choices",
+      "title": "Your rights and choices",
+      "start": 21166,
+      "end": 23201
+    },
+    {
+      "kind": "h2",
+      "label": "The security of your information",
+      "title": "The security of your information",
+      "start": 23201,
+      "end": 24385
+    },
+    {
+      "kind": "h2",
+      "label": "How long we keep your information",
+      "title": "How long we keep your information",
+      "start": 24385,
+      "end": 25424
+    },
+    {
+      "kind": "h2",
+      "label": "Information relating to children and teens",
+      "title": "Information relating to children and teens",
+      "start": 25424,
+      "end": 25968
+    },
+    {
+      "kind": "h2",
+      "label": "Privacy Policy update",
+      "title": "Privacy Policy update",
+      "start": 25968,
+      "end": 26483
+    },
+    {
+      "kind": "h2",
+      "label": "Contact",
+      "title": "Contact",
+      "start": 26483,
+      "end": 26965
+    },
+    {
+      "kind": "h2",
+      "label": "Supplemental Terms – Jurisdiction-Specific",
+      "title": "Supplemental Terms – Jurisdiction-Specific",
+      "start": 26965,
+      "end": 27318
+    },
+    {
+      "kind": "h3",
+      "label": "Australia",
+      "title": "Australia",
+      "start": 27318,
+      "end": 28334
+    },
+    {
+      "kind": "h3",
+      "label": "Egypt",
+      "title": "Egypt",
+      "start": 28334,
+      "end": 28885
+    },
+    {
+      "kind": "h3",
+      "label": "India",
+      "title": "India",
+      "start": 28885,
+      "end": 29252
+    },
+    {
+      "kind": "h3",
+      "label": "Indonesia",
+      "title": "Indonesia",
+      "start": 29252,
+      "end": 32492
+    },
+    {
+      "kind": "h3",
+      "label": "Israel",
+      "title": "Israel",
+      "start": 32492,
+      "end": 33045
+    },
+    {
+      "kind": "h3",
+      "label": "Japan",
+      "title": "Japan",
+      "start": 33045,
+      "end": 34570
+    },
+    {
+      "kind": "h3",
+      "label": "Kenya",
+      "title": "Kenya",
+      "start": 34570,
+      "end": 36357
+    },
+    {
+      "kind": "h3",
+      "label": "Latin America",
+      "title": "Latin America",
+      "start": 36357,
+      "end": 40643
+    },
+    {
+      "kind": "h3",
+      "label": "Nigeria",
+      "title": "Nigeria",
+      "start": 40643,
+      "end": 44473
+    },
+    {
+      "kind": "h3",
+      "label": "Philippines",
+      "title": "Philippines",
+      "start": 44473,
+      "end": 45180
+    },
+    {
+      "kind": "h3",
+      "label": "Russia",
+      "title": "Russia",
+      "start": 45180,
+      "end": 45991
+    },
+    {
+      "kind": "h3",
+      "label": "Singapore",
+      "title": "Singapore",
+      "start": 45991,
+      "end": 46240
+    },
+    {
+      "kind": "h3",
+      "label": "South Africa",
+      "title": "South Africa",
+      "start": 46240,
+      "end": 47548
+    },
+    {
+      "kind": "h3",
+      "label": "Türkiye",
+      "title": "Türkiye",
+      "start": 47548,
+      "end": 47752
+    },
+    {
+      "kind": "h3",
+      "label": "Uganda",
+      "title": "Uganda",
+      "start": 47752,
+      "end": 49483
+    },
+    {
+      "kind": "h3",
+      "label": "United Arab Emirates",
+      "title": "United Arab Emirates",
+      "start": 49483,
+      "end": 51278
+    },
+    {
+      "kind": "h3",
+      "label": "Vietnam",
+      "title": "Vietnam",
+      "start": 51278,
+      "end": 53603
+    },
+    {
+      "kind": "h3",
+      "label": "Other Jurisdictions",
+      "title": "Other Jurisdictions",
+      "start": 53603,
+      "end": 53944
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "zomato-privacy",
+  "kind": "policies",
+  "title": "Eternal (formerly Zomato) Privacy Policy",
+  "publisher": "Eternal Limited",
+  "source_url": "https://www.zomato.com/privacy",
+  "retrieved_at": "2026-11-10T04:09:49+00:00",
+  "files": {
+    "raw": null,
+    "raw_sha256": null,
+    "markdown": "corpus/policies/zomato-privacy/text/privacy-policy.md",
+    "text": "corpus/policies/zomato-privacy/text/content.md",
+    "text_sha256": "310c1902c77aca0a51cdc008e2cb07a91c74c6a643afe0f578f9ca81bd30b737",
+    "structure": "corpus/policies/zomato-privacy/structure/index.json"
+  },
+  "stats": {
+    "characters": 47886,
+    "words": 7056,
+    "lines": 111
+  },
+  "profile": "Indian consumer internet platform",
+  "selection_rationale": "Indian-origin consumer platform handling identity, contact, location, payment and delivery-partner data under Indian law."
+}

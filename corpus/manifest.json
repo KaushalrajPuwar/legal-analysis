@@ -1,0 +1,56 @@
+{
+  "corpus_version": "0.1.0",
+  "generated_at": "2026-11-10T04:09:49+00:00",
+  "builder": "scripts/build_corpus.py",
+  "sources": [
+    {
+      "slug": "dpdp-act-2023",
+      "kind": "legal",
+      "title": "The Digital Personal Data Protection Act, 2023 (No. 22 of 2023)",
+      "publisher": "Ministry of Law and Justice, Government of India",
+      "source_url": "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
+      "text": "corpus/legal/dpdp-act-2023/text/content.md",
+      "structure": "corpus/legal/dpdp-act-2023/structure/index.json",
+      "words": 10570
+    },
+    {
+      "slug": "google-privacy",
+      "kind": "policies",
+      "title": "Google Privacy Policy",
+      "publisher": "Google LLC",
+      "source_url": "https://policies.google.com/privacy?hl=en&gl=IN",
+      "text": "corpus/policies/google-privacy/text/content.md",
+      "structure": "corpus/policies/google-privacy/structure/index.json",
+      "words": 9231
+    },
+    {
+      "slug": "zomato-privacy",
+      "kind": "policies",
+      "title": "Eternal (formerly Zomato) Privacy Policy",
+      "publisher": "Eternal Limited",
+      "source_url": "https://www.zomato.com/privacy",
+      "text": "corpus/policies/zomato-privacy/text/content.md",
+      "structure": "corpus/policies/zomato-privacy/structure/index.json",
+      "words": 7056
+    },
+    {
+      "slug": "tiktok-privacy",
+      "kind": "policies",
+      "title": "TikTok Privacy Policy (rest of world)",
+      "publisher": "TikTok Technology Limited",
+      "source_url": "https://www.tiktok.com/legal/page/row/privacy-policy/en",
+      "text": "corpus/policies/tiktok-privacy/text/content.md",
+      "structure": "corpus/policies/tiktok-privacy/structure/index.json",
+      "words": 8698
+    }
+  ],
+  "provenance_sources": [
+    {
+      "slug": "pib-1635206",
+      "title": "Government blocks 59 mobile apps",
+      "publisher": "Press Information Bureau, Government of India",
+      "source_url": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=1635206",
+      "path": "corpus/sources/pib-1635206-59-apps-blocked.md"
+    }
+  ]
+}

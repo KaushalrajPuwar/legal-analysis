@@ -1,0 +1,401 @@
+{
+  "document": "The Digital Personal Data Protection Act, 2023",
+  "jurisdiction": "India",
+  "structure": "chapter > section",
+  "chapter_count": 9,
+  "section_count": 44,
+  "missing_sections": [],
+  "chapters": [
+    {
+      "kind": "chapter",
+      "label": "I",
+      "title": "Preliminary",
+      "start": 1268,
+      "end": 7638,
+      "children": [
+        {
+          "kind": "section",
+          "label": "1",
+          "title": null,
+          "start": 1300,
+          "end": 1775
+        },
+        {
+          "kind": "section",
+          "label": "2",
+          "title": null,
+          "start": 1775,
+          "end": 6495
+        },
+        {
+          "kind": "section",
+          "label": "3",
+          "title": null,
+          "start": 6495,
+          "end": 7689
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "II",
+      "title": "Obligations Of Data Fiduciary",
+      "start": 7638,
+      "end": 26208,
+      "children": [
+        {
+          "kind": "section",
+          "label": "4",
+          "title": null,
+          "start": 7689,
+          "end": 8058
+        },
+        {
+          "kind": "section",
+          "label": "5",
+          "title": null,
+          "start": 8058,
+          "end": 10362
+        },
+        {
+          "kind": "section",
+          "label": "6",
+          "title": null,
+          "start": 10362,
+          "end": 15162
+        },
+        {
+          "kind": "section",
+          "label": "7",
+          "title": null,
+          "start": 15162,
+          "end": 19267
+        },
+        {
+          "kind": "section",
+          "label": "8",
+          "title": null,
+          "start": 19267,
+          "end": 23227
+        },
+        {
+          "kind": "section",
+          "label": "9",
+          "title": null,
+          "start": 23227,
+          "end": 24612
+        },
+        {
+          "kind": "section",
+          "label": "10",
+          "title": null,
+          "start": 24612,
+          "end": 26266
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "III",
+      "title": "Rights And Duties Of Data Principal",
+      "start": 26208,
+      "end": 30843,
+      "children": [
+        {
+          "kind": "section",
+          "label": "11",
+          "title": null,
+          "start": 26266,
+          "end": 27749
+        },
+        {
+          "kind": "section",
+          "label": "12",
+          "title": null,
+          "start": 27749,
+          "end": 28680
+        },
+        {
+          "kind": "section",
+          "label": "13",
+          "title": null,
+          "start": 28680,
+          "end": 29449
+        },
+        {
+          "kind": "section",
+          "label": "14",
+          "title": null,
+          "start": 29449,
+          "end": 29996
+        },
+        {
+          "kind": "section",
+          "label": "15",
+          "title": null,
+          "start": 29996,
+          "end": 30884
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "IV",
+      "title": "Special Provisions",
+      "start": 30843,
+      "end": 35909,
+      "children": [
+        {
+          "kind": "section",
+          "label": "16",
+          "title": null,
+          "start": 30884,
+          "end": 31397
+        },
+        {
+          "kind": "section",
+          "label": "17",
+          "title": null,
+          "start": 31397,
+          "end": 35960
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "V",
+      "title": "Data Protection Board Of India",
+      "start": 35909,
+      "end": 41701,
+      "children": [
+        {
+          "kind": "section",
+          "label": "18",
+          "title": null,
+          "start": 35960,
+          "end": 36557
+        },
+        {
+          "kind": "section",
+          "label": "19",
+          "title": null,
+          "start": 36557,
+          "end": 37346
+        },
+        {
+          "kind": "section",
+          "label": "20",
+          "title": null,
+          "start": 37346,
+          "end": 37691
+        },
+        {
+          "kind": "section",
+          "label": "21",
+          "title": null,
+          "start": 37691,
+          "end": 38434
+        },
+        {
+          "kind": "section",
+          "label": "22",
+          "title": null,
+          "start": 38434,
+          "end": 39513
+        },
+        {
+          "kind": "section",
+          "label": "23",
+          "title": null,
+          "start": 39513,
+          "end": 40346
+        },
+        {
+          "kind": "section",
+          "label": "24",
+          "title": null,
+          "start": 40346,
+          "end": 40634
+        },
+        {
+          "kind": "section",
+          "label": "25",
+          "title": null,
+          "start": 40634,
+          "end": 41207
+        },
+        {
+          "kind": "section",
+          "label": "26",
+          "title": null,
+          "start": 41207,
+          "end": 41779
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "VI",
+      "title": "Powers, Functions And Procedure To Be Followed By Board",
+      "start": 41701,
+      "end": 46762,
+      "children": [
+        {
+          "kind": "section",
+          "label": "27",
+          "title": null,
+          "start": 41779,
+          "end": 43932
+        },
+        {
+          "kind": "section",
+          "label": "28",
+          "title": null,
+          "start": 43932,
+          "end": 46825
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "VII",
+      "title": "Appeal And Alternate Dispute Resolution",
+      "start": 46762,
+      "end": 51080,
+      "children": [
+        {
+          "kind": "section",
+          "label": "29",
+          "title": null,
+          "start": 46825,
+          "end": 49166
+        },
+        {
+          "kind": "section",
+          "label": "30",
+          "title": null,
+          "start": 49166,
+          "end": 49623
+        },
+        {
+          "kind": "section",
+          "label": "31",
+          "title": null,
+          "start": 49623,
+          "end": 49932
+        },
+        {
+          "kind": "section",
+          "label": "32",
+          "title": null,
+          "start": 49932,
+          "end": 51131
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "VIII",
+      "title": "Penalties And Adjudication",
+      "start": 51080,
+      "end": 52406,
+      "children": [
+        {
+          "kind": "section",
+          "label": "33",
+          "title": null,
+          "start": 51131,
+          "end": 52273
+        },
+        {
+          "kind": "section",
+          "label": "34",
+          "title": null,
+          "start": 52273,
+          "end": 52441
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "label": "IX",
+      "title": "Miscellaneous",
+      "start": 52406,
+      "end": 63221,
+      "children": [
+        {
+          "kind": "section",
+          "label": "35",
+          "title": null,
+          "start": 52441,
+          "end": 52734
+        },
+        {
+          "kind": "section",
+          "label": "36",
+          "title": null,
+          "start": 52734,
+          "end": 52902
+        },
+        {
+          "kind": "section",
+          "label": "37",
+          "title": null,
+          "start": 52902,
+          "end": 54504
+        },
+        {
+          "kind": "section",
+          "label": "38",
+          "title": null,
+          "start": 54504,
+          "end": 54832
+        },
+        {
+          "kind": "section",
+          "label": "39",
+          "title": null,
+          "start": 54832,
+          "end": 55180
+        },
+        {
+          "kind": "section",
+          "label": "40",
+          "title": null,
+          "start": 55180,
+          "end": 58858
+        },
+        {
+          "kind": "section",
+          "label": "41",
+          "title": null,
+          "start": 58858,
+          "end": 59716
+        },
+        {
+          "kind": "section",
+          "label": "42",
+          "title": null,
+          "start": 59716,
+          "end": 60147
+        },
+        {
+          "kind": "section",
+          "label": "43",
+          "title": null,
+          "start": 60147,
+          "end": 60711
+        },
+        {
+          "kind": "section",
+          "label": "44",
+          "title": null,
+          "start": 60711,
+          "end": 63221
+        }
+      ]
+    }
+  ],
+  "title_status": "unresolved",
+  "title_note": "Marginal notes in the Gazette PDF are interleaved with body text by the extraction layer, so official section headings are not recovered automatically. Section numbers, text and offsets are reliable; titles require a curation pass against the printed Gazette."
+}

@@ -5,33 +5,18 @@ from pathlib import Path
 import pymupdf
 import pytest
 
-from app.ingestion import IngestedDocument, extract_html
+from app.corpus import load_document
+from app.ingestion import IngestedDocument
 from app.store import AnalysisStore
 
 ROOT = Path(__file__).resolve().parents[1]
-SAMPLE_HTML = ROOT / "sample_data" / "nimbus_privacy_policy.html"
+CORPUS = ROOT / "corpus"
 
 
 @pytest.fixture
-def sample_html_bytes() -> bytes:
-    return SAMPLE_HTML.read_bytes()
-
-
-@pytest.fixture
-def sample_document(sample_html_bytes: bytes) -> IngestedDocument:
-    text, title, publisher, blocks = extract_html(sample_html_bytes, "https://nimbus.example/privacy")
-    return IngestedDocument(
-        text=text,
-        blocks=blocks,
-        source_type="url",
-        source_url="https://nimbus.example/privacy",
-        retrieved_at="2026-10-30T00:00:00+00:00",
-        title=title,
-        publisher=publisher,
-        content_sha256="0" * 64,
-        page_count=None,
-        warnings=[],
-    )
+def sample_document() -> IngestedDocument:
+    """A real Indian consumer platform policy from the curated corpus."""
+    return load_document("zomato-privacy", CORPUS)
 
 
 @pytest.fixture
@@ -66,3 +51,19 @@ def sample_pdf_bytes() -> bytes:
 @pytest.fixture
 def store(tmp_path: Path) -> AnalysisStore:
     return AnalysisStore(tmp_path / "analyses.sqlite3", retention_hours=24)
+
+
+@pytest.fixture
+def sample_html_bytes() -> bytes:
+    """Minimal HTML policy for parser and fetcher tests."""
+    return b"""<!doctype html>
+<html><head><title>Acme Privacy Policy</title>
+<meta property="og:site_name" content="Acme Ltd"></head>
+<body><main>
+<h1>Acme Privacy Policy</h1>
+<p>We collect your name and email address when you create an account.</p>
+<h2>Information We Collect</h2>
+<p>We collect device information such as your browser type and IP address.</p>
+<h2>Data Retention</h2>
+<p>We retain account information for 24 months after you close your account.</p>
+</main></body></html>"""
