@@ -1,0 +1,154 @@
+%% UML class model for the implemented backend slice.
+%% Domain types are composed by the report; services depend on domain types.
+%% Classes marked planned are the extension points for the evidence layer.
+
+classDiagram
+    direction LR
+
+    class IngestedDocument {
+        <<implemented>>
+        +str text
+        +list~DocumentBlock~ blocks
+        +str sourceType
+        +str sourceUrl
+        +str retrievedAt
+        +str title
+        +str publisher
+        +str contentSha256
+        +int pageCount
+        +list~str~ warnings
+    }
+
+    class DocumentBlock {
+        <<implemented>>
+        +str text
+        +int start
+        +int end
+        +int page
+        +str section
+        +bool isHeading
+    }
+
+    class AnalysisReport {
+        <<implemented>>
+        +str analysisId
+        +str createdAt
+        +str expiresAt
+        +DocumentMetadata metadata
+        +str summary
+        +list~PracticeObservation~ observations
+        +list~str~ limitations
+    }
+
+    class DocumentMetadata {
+        <<implemented>>
+        +str sourceType
+        +str sourceUrl
+        +str contentSha256
+        +DocumentKind documentKind
+        +int pageCount
+        +list~str~ warnings
+    }
+
+    class PracticeObservation {
+        <<implemented>>
+        +PracticeType practiceType
+        +list~str~ dataCategories
+        +list~str~ recipients
+        +str retention
+        +list~str~ userControls
+        +list~SourceSpan~ sourceSpans
+        +Severity severity
+        +list~str~ severityFactors
+        +EvidenceStrength evidenceStrength
+        +str legalMappingStatus
+    }
+
+    class SourceSpan {
+        <<implemented>>
+        +str section
+        +int page
+        +int start
+        +int end
+        +str quote
+        +matches(documentText) bool
+    }
+
+    class AnalysisService {
+        <<implemented>>
+        +analyse(document, store, retentionHours) AnalysisReport
+        -assertSpansResolve(report, text)
+    }
+
+    class IngestionAdapter {
+        <<implemented>>
+        +fetchUrl(url, transport) IngestedDocument
+        +ingestPdfBytes(content, filename) IngestedDocument
+        +readPdfUpload(upload) IngestedDocument
+    }
+
+    class ExtractionService {
+        <<implemented>>
+        +extractObservations(document) list~PracticeObservation~
+        +classifyDocument(text) DocumentKind
+    }
+
+    class SeverityRubric {
+        <<implemented>>
+        +assessSeverity(practiceType, text) Severity
+        +assessEvidenceStrength(quote) EvidenceStrength
+        +detectCategories(text) list~str~
+    }
+
+    class AnalysisStore {
+        <<implemented>>
+        +Path dbPath
+        +int retentionHours
+        +save(report)
+        +get(analysisId) AnalysisReport
+        +delete(analysisId) bool
+        +purgeExpired() int
+        +expiryFor(createdAt) str
+    }
+
+    class PolicyApi {
+        <<implemented>>
+        +analyseUrl(request) AnalysisReport
+        +analysePdf(file) AnalysisReport
+        +getAnalysis(analysisId) AnalysisReport
+        +deleteAnalysis(analysisId) None
+    }
+
+    class LegalCorpus {
+        <<planned>>
+        +listSources() list~LegalSource~
+        +activate(sourceId)
+    }
+
+    class Retriever {
+        <<planned>>
+        +retrieve(query, filters) list~Provision~
+    }
+
+    class EvidenceLinker {
+        <<planned>>
+        +link(observation, provision) EvidenceLink
+        +validate(link) bool
+    }
+
+    IngestedDocument "1" *-- "many" DocumentBlock : contains
+    AnalysisReport "1" *-- "1" DocumentMetadata : describes
+    AnalysisReport "1" *-- "many" PracticeObservation : reports
+    PracticeObservation "1" *-- "1..*" SourceSpan : supported by
+
+    PolicyApi ..> AnalysisService : delegates
+    PolicyApi ..> IngestionAdapter : fetches
+    AnalysisService ..> ExtractionService : uses
+    AnalysisService ..> SeverityRubric : uses
+    AnalysisService ..> AnalysisStore : persists
+    AnalysisStore ..> AnalysisReport : stores
+
+    Retriever ..> LegalCorpus : queries
+    EvidenceLinker ..> Retriever : uses
+    AnalysisService ..> Retriever : planned
+    AnalysisService ..> EvidenceLinker : planned

@@ -1,0 +1,77 @@
+%% Core runtime architecture for Legal Analysis.
+%% Solid nodes are implemented in the current backend slice.
+%% Dashed nodes are designed but not yet built.
+%% The report is returned through the API; the return edge is omitted to keep
+%% the diagram acyclic and readable.
+
+flowchart LR
+    classDef implemented fill:#E8F1FB,stroke:#2E5F8A,stroke-width:1.6px,color:#16202B
+    classDef planned fill:#F5F6F8,stroke:#98A2B3,stroke-width:1.2px,stroke-dasharray:5 3,color:#475467
+    classDef store fill:#FFF7E0,stroke:#B58105,stroke-width:1.3px,color:#4A3600
+    classDef note fill:#FFFFFF,stroke:#C8D3E0,stroke-width:1px,color:#667085,stroke-dasharray:3 3
+    classDef source fill:#FFFFFF,stroke:#667085,stroke-width:1.2px,color:#344054
+
+    subgraph CLIENT["Client"]
+        direction LR
+        UI["Citizen web interface<br/>submit, read, inspect evidence"]:::planned
+    end
+
+    subgraph APP["Application"]
+        direction LR
+        API["FastAPI<br/>routes and validation"]:::implemented
+        ORCH["Orchestrator<br/>job state"]:::planned
+    end
+
+    subgraph DOC["Document processing, implemented"]
+        direction LR
+        ING["Ingestion<br/>URL fetch, PDF parse"]:::implemented
+        STRUCT["Structure<br/>headings, pages, offsets"]:::implemented
+        EXTRACT["Extraction<br/>seven practice types"]:::implemented
+    end
+
+    subgraph EVID["Legal evidence, planned"]
+        direction LR
+        CORPUS["Corpus registry<br/>versioned official sources"]:::planned
+        RETRIEVE["Hybrid retrieval<br/>lexical, vector, rerank"]:::planned
+        LINK["Evidence linking<br/>validate or abstain"]:::planned
+    end
+
+    subgraph ASSESS["Assessment and reporting, implemented"]
+        direction LR
+        SEV["Severity<br/>rules and factors"]:::implemented
+        REPORT["Report composer<br/>source-traceable"]:::implemented
+    end
+
+    subgraph DATA["Data and models"]
+        direction TB
+        DB[("SQLite analysis store<br/>24 hour expiry")]:::store
+        MODELS["Model gateway, planned<br/>extraction, embedding, rerank"]:::note
+        OBJECTS["Object storage, planned<br/>original documents"]:::note
+    end
+
+    SOURCES["DPDP Act, notified rules<br/>official guidance"]:::source
+
+    UI --> API
+    API --> ORCH
+    ORCH --> ING
+    ING --> STRUCT
+    STRUCT --> EXTRACT
+    EXTRACT --> RETRIEVE
+    RETRIEVE --> LINK
+    LINK --> SEV
+    EXTRACT --> SEV
+    SEV --> REPORT
+
+    EXTRACT --> DB
+    REPORT --> DB
+
+    SOURCES --> CORPUS
+    CORPUS --> RETRIEVE
+
+    subgraph LEGEND["Legend"]
+        direction LR
+        L1["Implemented"]:::implemented
+        L2["Planned"]:::planned
+        L3[("Store")]:::store
+        L4["External source"]:::source
+    end
